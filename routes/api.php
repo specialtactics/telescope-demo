@@ -73,5 +73,13 @@ $api->version('v1', ['middleware' => ['api']], function ($api) {
         $api->group(['prefix' => 'roles'], function ($api) {
             $api->get('/', 'App\Http\Controllers\RoleController@getAll');
         });
+
+        /**
+         * Telescope test routes
+         */
+        $api->group(['prefix' => 'pres'], function ($api) {
+            $api->post('/demo-request', 'App\Http\Controllers\DemoController@demoRequest');
+        });
+
     });
 });
