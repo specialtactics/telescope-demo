@@ -20,9 +20,20 @@ An example request which creates a new resource in the system
  - Model
  - Queries
  
- #### Cache Example
- An example request which demonstrates cache monitoring
+#### Cache Example
+An example request which demonstrates cache monitoring
  
- **Telescope Features Shown**
+**Telescope Features Shown**
   - Request
   - Cache
+  
+#### Create User 
+An example request which demonstrates several features;
+
+**Telescope Features Shown**
+ - Request
+ - Queries
+ - Models
+ - Events
+ - Mail (note - requires "log" mail driver)
+ - Jobs

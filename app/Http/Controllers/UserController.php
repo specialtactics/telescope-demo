@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserCreated;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,8 @@ class UserController extends Controller
     {
         $user = parent::post($request);
 
-        // event
-
-        // email
+        // Fire off enw user event
+        event(new UserCreated($user));
 
         return $this->response->item($user, $this->getTransformer())->setStatusCode(201);
     }
