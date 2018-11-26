@@ -86,24 +86,12 @@ services:
         - POSTGRES_USER=${POSTGRES_USER}
         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
-### RabbitMQ ################################################
-    rabbitmq:
-        container_name: telescope_demo_rabbitmq
-        image: "rabbitmq"
-        network_mode: "bridge"
-        hostname: telescope_demo_rabbitmq
-        ports:
-          - 15672:15672
-
 ### Redis ################################################
     redis:
       container_name: telescope_demo_redis
       image: "redis"
       network_mode: "bridge"
       hostname: telescope_demo_redis
-      ports:
-      - 6379:6379
-
 
 ### Volumes Setup ###########################################
 volumes:
