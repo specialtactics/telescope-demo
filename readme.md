@@ -11,7 +11,6 @@ An example request
 **Telescope Features Shown**
  - Request
  
- 
 #### Create new Post
 An example request which creates a new resource in the system
 
@@ -35,5 +34,18 @@ An example request which demonstrates several features;
  - Queries
  - Models
  - Events
- - Mail (note - requires "log" mail driver)
+ - Mail
  - Jobs
+
+**Things to note**
+ - In order for telescope to record your emails, you will need to change your mail driver to "log"
+
+#### Exceptional Request
+An example of exception handling and dumping
+
+**Telescope Features Shown**
+ - Dumps
+ - Exceptions
+ 
+**Things to note**
+ - Exceptions are not logged if you throw them directly

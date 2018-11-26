@@ -77,9 +77,10 @@ $api->version('v1', ['middleware' => ['api']], function ($api) {
         /**
          * Telescope test routes
          */
-        $api->group(['prefix' => 'pres'], function ($api) {
+        $api->group(['prefix' => 'demo'], function ($api) {
             $api->post('/demo-request', 'App\Http\Controllers\DemoController@demoRequest');
             $api->get('/cache-example', 'App\Http\Controllers\DemoController@cacheExample');
+            $api->get('/exceptional-request', 'App\Http\Controllers\DemoController@exceptionalRequest');
         });
 
         /**
