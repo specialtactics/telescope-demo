@@ -6,6 +6,7 @@ use Laravel\Telescope\Telescope;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Telescope\IncomingEntry;
 use Laravel\Telescope\TelescopeApplicationServiceProvider;
+use Laravel\Telescope\EntryType;
 
 class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 {
@@ -23,6 +24,13 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
         $this->hideSensitiveRequestDetails();
 
         Telescope::filter(function (IncomingEntry $entry) {
+            // Filter out default events of Dingo
+            if ($entry->type == EntryType::EVENT) {
+                if (in_array($entry->content['name'], ['Dingo\Api\Event\RequestWasMatched', 'Dingo\Api\Event\ResponseIsMorphing', 'Dingo\Api\Event\ResponseWasMorphed'])) {
+                    return false;
+                }
+            }
+
             if ($this->app->isLocal()) {
                 return true;
             }

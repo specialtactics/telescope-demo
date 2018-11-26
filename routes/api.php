@@ -79,7 +79,14 @@ $api->version('v1', ['middleware' => ['api']], function ($api) {
          */
         $api->group(['prefix' => 'pres'], function ($api) {
             $api->post('/demo-request', 'App\Http\Controllers\DemoController@demoRequest');
+            $api->get('/cache-example', 'App\Http\Controllers\DemoController@cacheExample');
         });
 
+        /**
+         * Posts
+         */
+        $api->group(['prefix' => 'posts'], function ($api) {
+            $api->post('/', 'App\Http\Controllers\PostController@post');
+        });
     });
 });

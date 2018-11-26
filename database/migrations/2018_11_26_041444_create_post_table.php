@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreatePostTable extends Migration
 {
-    const TABLE_NAME = 'users';
+    const TABLE_NAME = 'posts';
 
     /**
      * Run the migrations.
@@ -16,18 +16,14 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create(static::TABLE_NAME, function (Blueprint $table) {
-            $table->uuid('user_id');
+            $table->uuid('post_id');
 
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('topic');
+            $table->text('content');
+            $table->uuid('author_id');
 
-            $table->uuid('primary_role')->nullable();
-            $table->foreign('primary_role')->references('role_id')->on('roles')->onDelete('set null');
+            $table->primary('post_id');
 
-            $table->primary('user_id');
-
-            $table->rememberToken();
             $table->timestamps();
         });
     }
