@@ -1,6 +1,8 @@
 ## Laravel Telescope Demo
 This is a demo of Laravel Telescope built for the presentation on the same topic (https://blog.maxsnow.me/presentations/)
 
+Note that the postman collection is in docs/postman-collection.json of this repo
+
 This project is based on the [Laravel API Boilerplate](https://github.com/specialtactics/l5-api-boilerplate)
 
 ## Presentation Notes

@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "7af0dd6a-f118-4cfb-87cd-420f10502cbe",
+		"name": "Laravel Telescope Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "58f3b5fe-021b-45f0-93f0-63b5dcf5d534",
+						"type": "text/javascript",
+						"exec": [
+							"var response = pm.response.json();",
+							"",
+							"pm.globals.set(\"jwt\", response.data.jwt);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "basic YWRtaW5AYWRtaW4uY29tOnNlY3JldA=="
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://api.telescope.demo/auth/jwt/token",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"auth",
+						"jwt",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Demo Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84d00247-39ec-4495-b95e-82090ee0673a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"example\": \"test\",\n\t\"another\": 6\n}"
+				},
+				"url": {
+					"raw": "http://api.telescope.demo/demo/demo-request",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"demo",
+						"demo-request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84d00247-39ec-4495-b95e-82090ee0673a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"topic\": \"Politics\",\n\t\"content\": \"Various strong opinions\"\n}"
+				},
+				"url": {
+					"raw": "http://api.telescope.demo/posts/",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cache Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84d00247-39ec-4495-b95e-82090ee0673a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"topic\": \"Politics\",\n\t\"content\": \"Various strong opinions\"\n}"
+				},
+				"url": {
+					"raw": "http://api.telescope.demo/demo/cache-example",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"demo",
+						"cache-example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84d00247-39ec-4495-b95e-82090ee0673a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Example Bob\",\n  \"email\": \"some-email5@example.com\",\n  \"password\": \"princess\"\n}"
+				},
+				"url": {
+					"raw": "http://api.telescope.demo/users/",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exception & Dump Example",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84d00247-39ec-4495-b95e-82090ee0673a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"topic\": \"Politics\",\n  \"content\": \"Various strong opinions\"\n}"
+				},
+				"url": {
+					"raw": "http://api.telescope.demo/demo/exceptional-request",
+					"protocol": "http",
+					"host": [
+						"api",
+						"telescope",
+						"demo"
+					],
+					"path": [
+						"demo",
+						"exceptional-request"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
