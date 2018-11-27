@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Role;
+use App\Models\User;
 use GuzzleHttp\Client as Guzzle;
 use Cache;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -61,12 +61,5 @@ class DemoController extends Controller
             dump ($e);
             throw new AccessDeniedHttpException('Guess what? That API is not playing. Womp Womp !');
         }
-    }
-
-    /**
-     * What happens with a lot of queries?
-     */
-    public function manyQueriesExample() {
-
     }
 }

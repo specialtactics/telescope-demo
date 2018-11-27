@@ -31,5 +31,11 @@ class UserStorySeeder extends BaseSeeder
             }
         }
 
+        // Create an example user
+        factory(App\Models\User::class)->create([
+            'name'         => 'Some Guy',
+            'email'        => 'example@example.com',
+            'primary_role' => $roles->where('name', 'user')->first()->role_id,
+        ]);
     }
 }

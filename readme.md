@@ -48,4 +48,8 @@ An example of exception handling and dumping
  - Exceptions
  
 **Things to note**
+ - You must have the Telescope dump screen open in order for it to log dumps
  - Exceptions are not logged if you throw them directly
+ 
+#### At the end
+Show schedule & do an example of a command
